@@ -11,9 +11,12 @@
 docker run --rm \
        --volume "$(pwd):/data" \
        --user $(id -u):$(id -g) \
-       pandoc/japanese report.md -o report.pdf \
+       pandoc/japanese out/reports/report.md -o out/reports/report.pdf \
        --pdf-engine=lualatex \
        -V documentclass=ltjsarticle \
-       -V luatexjapresetoptions=ipaex
+       -V luatexjapresetoptions=ipaex \
+       -V geometry:top=25mm \
+       -V geometry:headheight=10mm \
+       -V geometry:headsep=5mm
        # -V classoption=twocolumn
 ```
